@@ -88,6 +88,13 @@ link "$PROF/claude/plugins"       "$HOME/.claude/plugins"
 link "$PROF/claude/commands"      "$HOME/.claude/commands"
 link "$PROF/mcp/mcp.json"         "$HOME/.config/mcp/mcp.json"
 
+# ── Mac-specific: Kitty ──────────────────────────────────────────────────────
+link "$MAC_DIR/mac/kitty" "$HOME/.config/kitty"
+if [ ! -e "$MAC_DIR/mac/kitty/themes/current-theme.conf" ]; then
+    ln -s "$MAC_DIR/mac/kitty/themes/default.conf" "$MAC_DIR/mac/kitty/themes/current-theme.conf"
+    info "Kitty theme: initialized current-theme.conf → default.conf"
+fi
+
 # ── Mac-specific: Karabiner ───────────────────────────────────────────────────
 if has_content "$MAC_DIR/mac/karabiner"; then
     link "$MAC_DIR/mac/karabiner" "$HOME/.config/karabiner"
