@@ -3,12 +3,6 @@ _mac_bash_this="$(readlink "${BASH_SOURCE[0]}" || echo "${BASH_SOURCE[0]}")"
 source "$(cd "$(dirname "$_mac_bash_this")/../.." && pwd)/professional/bash/.bash_profile"
 unset _mac_bash_this
 
-# ── Elan (Lean theorem prover) ────────────────────────────────────────────────
-export PATH="$HOME/.elan/bin:$PATH"
-
-# ── GHCup (Haskell toolchain) ─────────────────────────────────────────────────
-[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env"
-
 # ── conda (mambaforge) ────────────────────────────────────────────────────────
 __conda_setup="$('/opt/homebrew/Caskroom/mambaforge/base/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
