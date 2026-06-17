@@ -80,8 +80,9 @@ link "$PROF/marimo/marimo.toml" "$HOME/.config/marimo/marimo.toml"
 
 # ── Claude ───────────────────────────────────────────────────────────────────
 mkdir -p "$HOME/.claude"
-link "$PROF/claude/CLAUDE.md"     "$HOME/.claude/CLAUDE.md"
-link "$PROF/claude/settings.json" "$HOME/.claude/settings.json"
+link "$PROF/claude/CLAUDE.md"          "$HOME/.claude/CLAUDE.md"
+link "$PROF/AGENTS.md"                 "$HOME/.claude/AGENTS.md"
+link "$MAC_DIR/mac/claude/settings.json" "$HOME/.claude/settings.json"
 link "$PROF/claude/skills"        "$HOME/.claude/skills"
 link "$PROF/claude/plugins"       "$HOME/.claude/plugins"
 link "$PROF/claude/commands"      "$HOME/.claude/commands"
