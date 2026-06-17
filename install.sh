@@ -58,7 +58,7 @@ fi
 # ── Shell ─────────────────────────────────────────────────────────────────────
 link "$PROF/bash/.bashrc"       "$HOME/.bashrc"
 link "$PROF/bash/.bash_profile" "$HOME/.bash_profile"
-link "$PROF/zsh/.zshrc"         "$HOME/.zshrc"
+link "$MAC_DIR/mac/zsh/.zshrc"  "$HOME/.zshrc"
 
 # ── Git ───────────────────────────────────────────────────────────────────────
 link "$PROF/git/.gitconfig" "$HOME/.gitconfig"
