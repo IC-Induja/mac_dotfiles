@@ -87,15 +87,6 @@ link "$PROF/claude/plugins"       "$HOME/.claude/plugins"
 link "$PROF/claude/commands"      "$HOME/.claude/commands"
 link "$PROF/mcp/mcp.json"         "$HOME/.config/mcp/mcp.json"
 
-# ── Claude dreams → skills symlinks ──────────────────────────────────────────
-if [ -d "$PROF/claude/dreams" ]; then
-    for dream_dir in "$PROF/claude/dreams"/*/; do
-        [ -d "$dream_dir" ] || continue
-        name="$(basename "$dream_dir")"
-        link "$dream_dir" "$PROF/claude/skills/$name"
-    done
-fi
-
 # ── Mac-specific: Karabiner ───────────────────────────────────────────────────
 if has_content "$MAC_DIR/mac/karabiner"; then
     link "$MAC_DIR/mac/karabiner" "$HOME/.config/karabiner"
