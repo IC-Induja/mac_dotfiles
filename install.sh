@@ -75,6 +75,9 @@ link "$PROF/lazygit" "$HOME/.config/lazygit"
 # ── GitHub CLI ────────────────────────────────────────────────────────────────
 link "$PROF/gh/config.yml" "$HOME/.config/gh/config.yml"
 
+# ── gh-dash ───────────────────────────────────────────────────────────────────
+link "$PROF/gh-dash/config.yml" "$HOME/.config/gh-dash/config.yml"
+
 # ── Marimo ───────────────────────────────────────────────────────────────────
 link "$PROF/marimo/marimo.toml" "$HOME/.config/marimo/marimo.toml"
 
