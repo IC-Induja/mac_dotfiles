@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# macOS system defaults — run manually after first install.
+# Add `defaults write ...` commands here as you discover preferences to pin.
+set -euo pipefail
+
+# ── Finder ───────────────────────────────────────────────────────────────────
+# defaults write com.apple.finder ShowPathbar -bool true
+# defaults write com.apple.finder ShowStatusBar -bool true
+
+# ── Dock ─────────────────────────────────────────────────────────────────────
+# defaults write com.apple.dock autohide -bool true
+
+echo "macOS defaults applied."
