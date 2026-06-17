@@ -10,6 +10,9 @@ export LIBRARY_PATH="$LIBRARY_PATH:/Library/Developer/CommandLineTools/SDKs/MacO
 # ── Aliases ───────────────────────────────────────────────────────────────────
 alias ll='ls -hlat'
 
+# ── iTerm2 shell integration ──────────────────────────────────────────────────
+test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
+
 # ── Kitty theme switcher ──────────────────────────────────────────────────────
 ktheme() {
   local theme_dir="${HOME}/.config/kitty/themes"

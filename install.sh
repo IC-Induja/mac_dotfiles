@@ -101,9 +101,7 @@ if has_content "$MAC_DIR/mac/karabiner"; then
 fi
 
 # ── Mac-specific: iTerm2 ─────────────────────────────────────────────────────
-if has_content "$MAC_DIR/mac/iterm2"; then
-    link "$MAC_DIR/mac/iterm2" "$HOME/Library/Application Support/iTerm2"
-fi
+link "$MAC_DIR/mac/iterm2/iterm2_shell_integration.zsh" "$HOME/.iterm2_shell_integration.zsh"
 
 echo ""
 echo "Done. To apply macOS system defaults, run: $MAC_DIR/mac/.macos"
