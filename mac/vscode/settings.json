@@ -1,0 +1,62 @@
+{
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+    "workbench.startupEditor": "none",
+    "tabnine.experimentalAutoImports": true,
+    "editor.formatOnSave": true,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "editor.accessibilitySupport": "off",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "terminal.integrated.inheritEnv": false,
+    "cSpell.userWords": [
+        "adata",
+        "anndata",
+        "barcodes",
+        "cellbender",
+        "genotyping",
+        "germline",
+        "induja",
+        "MSSNG",
+        "Nanopore",
+        "ribo",
+        "scanpy",
+        "Yuen"
+    ],
+    "git.autofetch": true,
+    "window.zoomLevel": 1,
+    "git.ignoreLegacyWarning": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "git.confirmSync": false,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "python.analysis.supportRestructuredText": true,
+    "makefile.configureOnOpen": true,
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "[markdown]": {
+        "editor.defaultFormatter": "tehnix.vscode-tidymarkdown"
+    },
+    // "notebook.formatOnCellExecution": true
+    "tidyMarkdown.ensureFirstHeaderIsH1": false,
+    "cSpell.enabled": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+    "quarto.render.renderOnSave": true,
+    "marimo.telemetry": false,
+    "github.copilot.enable": {
+        "*": false,
+        "quarto": false
+    },
+    "lean4.alwaysAskBeforeInstallingLeanVersions": true,
+}

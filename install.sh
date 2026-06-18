@@ -106,5 +106,18 @@ fi
 # ── Mac-specific: iTerm2 ─────────────────────────────────────────────────────
 link "$MAC_DIR/mac/iterm2/iterm2_shell_integration.zsh" "$HOME/.iterm2_shell_integration.zsh"
 
+# ── Mac-specific: Cursor ─────────────────────────────────────────────────────
+if has_content "$MAC_DIR/mac/cursor"; then
+    link "$MAC_DIR/mac/cursor/settings.json"    "$HOME/Library/Application Support/Cursor/User/settings.json"
+    link "$MAC_DIR/mac/cursor/keybindings.json" "$HOME/Library/Application Support/Cursor/User/keybindings.json"
+fi
+
+# ── Mac-specific: VS Code ─────────────────────────────────────────────────────
+if has_content "$MAC_DIR/mac/vscode"; then
+    link "$MAC_DIR/mac/vscode/settings.json"    "$HOME/Library/Application Support/Code/User/settings.json"
+    link "$MAC_DIR/mac/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+    link "$MAC_DIR/mac/vscode/mcp.json"         "$HOME/Library/Application Support/Code/User/mcp.json"
+fi
+
 echo ""
 echo "Done. To apply macOS system defaults, run: $MAC_DIR/mac/.macos"
