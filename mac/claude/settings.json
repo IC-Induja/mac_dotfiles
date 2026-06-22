@@ -5,7 +5,7 @@
       "/Users/induja"
     ]
   },
-  "model": "sonnet",
+  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
