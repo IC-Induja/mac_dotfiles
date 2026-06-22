@@ -40,3 +40,5 @@ _ktheme() {
   compadd -- "${themes[@]}"
 }
 compdef _ktheme ktheme
+
+cd ~/projects/temp/
