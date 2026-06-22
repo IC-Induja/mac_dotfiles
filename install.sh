@@ -119,5 +119,13 @@ if has_content "$MAC_DIR/mac/vscode"; then
     link "$MAC_DIR/mac/vscode/mcp.json"         "$HOME/Library/Application Support/Code/User/mcp.json"
 fi
 
+# ── Mac-specific: sioyek ──────────────────────────────────────────────────────
+# Only the user-editable config; sioyek manages its own databases, auto.config,
+# and last_document_path.txt in the same dir, so we link the two files, not the dir.
+if has_content "$MAC_DIR/mac/sioyek"; then
+    link "$MAC_DIR/mac/sioyek/prefs_user.config" "$HOME/Library/Application Support/sioyek/prefs_user.config"
+    link "$MAC_DIR/mac/sioyek/keys_user.config"  "$HOME/Library/Application Support/sioyek/keys_user.config"
+fi
+
 echo ""
 echo "Done. To apply macOS system defaults, run: $MAC_DIR/mac/.macos"
