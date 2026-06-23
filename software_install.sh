@@ -146,6 +146,7 @@ UV_TOOLS=(
   ipython
   marimo
   ruff
+  posting         # TUI HTTP/API client (same tool as the base AMI; no brew cask)
 )
 
 for tool in "${UV_TOOLS[@]}"; do
@@ -209,6 +210,52 @@ else
   log "sioyek-tools venv ready at $SIOYEK_VENV"
 fi
 
+# --- 2g. TUI tools from the base AMI + yazi's preview dependency tail -------
+# Mirrors packer/base.pkr.hcl: the terminal TUI apps (yazi, btop, lazysql;
+# posting is handled above via uv) plus every external tool yazi shells out to
+# for file previews. All are Homebrew core formulae on macOS, so we let brew
+# resolve current versions (matching this file's existing unpinned convention).
+#
+#   yazi          terminal file manager (ships the `ya` plugin manager)
+#   btop          resource monitor
+#   lazysql       TUI database client
+TUI_TOOLS=(
+  yazi
+  btop
+  lazysql
+)
+
+# yazi preview helpers — yazi invokes these to render previews:
+#   glow          markdown
+#   duckdb        csv / parquet / json
+#   ouch          archive listing/extraction
+#   resvg         svg rasterization
+#   ffmpeg        video thumbnails + audio metadata
+#   imagemagick   heic / jpeg-xl / font / svg-fallback conversion
+#   sevenzip      7z archive preview (provides 7z / 7zz)
+#   mediainfo     media metadata
+#   poppler       pdftoppm, for pdf previews
+YAZI_PREVIEW_DEPS=(
+  glow
+  duckdb
+  ouch
+  resvg
+  ffmpeg
+  imagemagick
+  sevenzip
+  mediainfo
+  poppler
+)
+
+for formula in "${TUI_TOOLS[@]}" "${YAZI_PREVIEW_DEPS[@]}"; do
+  if brew list "$formula" >/dev/null 2>&1; then
+    log "$formula already installed — skipping"
+  else
+    log "Installing $formula"
+    brew install "$formula"
+  fi
+done
+
 # --- 3. reMarkable: no cask, no static download URL ------------------------
 # The reMarkable desktop app is not on Homebrew, and the my.remarkable.com
 # download requires a logged-in session (no stable direct .dmg link). Its
@@ -243,6 +290,8 @@ fi
 log "Done."
 log "Casks:    ${CASKS[*]}"
 log "Formulae: ${FORMULAE[*]}"
+log "TUI:      ${TUI_TOOLS[*]}"
+log "yazi deps: ${YAZI_PREVIEW_DEPS[*]}"
 log "rustup:   rust toolchain (rustc, cargo)"
 log "uv tools: ${UV_TOOLS[*]}"
 log "sioyek:   v${SIOYEK_VERSION} (pinned release) + sioyek-tools venv"
