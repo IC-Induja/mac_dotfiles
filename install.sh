@@ -103,6 +103,10 @@ if has_content "$MAC_DIR/mac/karabiner"; then
     link "$MAC_DIR/mac/karabiner" "$HOME/.config/karabiner"
 fi
 
+# ── Mac-specific: Hammerspoon ─────────────────────────────────────────────────
+# Window/app hotkeys (Option+C/X app-cycle, Option+P sioyek monitor-aware layout).
+link "$MAC_DIR/mac/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
+
 # ── Mac-specific: iTerm2 ─────────────────────────────────────────────────────
 link "$MAC_DIR/mac/iterm2/iterm2_shell_integration.zsh" "$HOME/.iterm2_shell_integration.zsh"
 
@@ -122,9 +126,17 @@ fi
 # ── Mac-specific: sioyek ──────────────────────────────────────────────────────
 # Only the user-editable config; sioyek manages its own databases, auto.config,
 # and last_document_path.txt in the same dir, so we link the two files, not the dir.
+# keys_user.config is static -> symlink. prefs_user.config is regenerated per
+# monitor layout by Hammerspoon (Option+P), so it must be a REAL file rather than
+# a symlink into the repo (otherwise Hammerspoon would clobber the tracked base).
+# We seed it with the base (laptop) config; Hammerspoon overwrites it on launch.
 if has_content "$MAC_DIR/mac/sioyek"; then
-    link "$MAC_DIR/mac/sioyek/prefs_user.config" "$HOME/Library/Application Support/sioyek/prefs_user.config"
     link "$MAC_DIR/mac/sioyek/keys_user.config"  "$HOME/Library/Application Support/sioyek/keys_user.config"
+    sioyek_prefs="$HOME/Library/Application Support/sioyek/prefs_user.config"
+    mkdir -p "$(dirname "$sioyek_prefs")"
+    [ -L "$sioyek_prefs" ] && rm "$sioyek_prefs"
+    cp "$MAC_DIR/mac/sioyek/prefs_user.config" "$sioyek_prefs"
+    info "Seeded (Hammerspoon-managed real file): $sioyek_prefs"
 fi
 
 echo ""
